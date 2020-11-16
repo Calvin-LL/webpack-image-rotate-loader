@@ -52,6 +52,31 @@ module.exports = {
 
 ```
 
+##### Or use with [`webpack-image-resize-loader`](https://github.com/Calvin-LL/webpack-image-resize-loader)
+
+```javascript
+module.exports = {
+  ...
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|webp|tiff?)/i,
+        use: [
+          {
+            loader: "webpack-image-resize-loader",
+            options: {
+              width: 1000,
+            },
+          },
+          "webpack-image-rotate-loader",
+        ],
+      },
+    ],
+  },
+};
+
+```
+
 #### You can override options with queries
 
 ```javascript
