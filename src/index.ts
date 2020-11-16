@@ -61,10 +61,17 @@ function attemptToConvertValuesToNumbers(object: any | undefined) {
   const result = { ...object };
 
   Object.keys(result).forEach((key) => {
-    if (/^\d+$/.test(result[key])) {
+    if (isNumeric(result[key])) {
       result[key] = Number(result[key]);
     }
   });
 
   return result;
+}
+
+// https://stackoverflow.com/a/175787
+function isNumeric(string: string) {
+  if (typeof string !== "string") return false;
+  // @ts-expect-error
+  return !isNaN(string) && !isNaN(parseFloat(string));
 }
