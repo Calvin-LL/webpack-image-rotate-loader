@@ -11,7 +11,6 @@ import schema from "./options.json";
 export interface OPTIONS {
   background?: string | object;
   angle?: number;
-  fileLoaderOptions?: object;
 }
 
 export const raw = true;
@@ -27,6 +26,7 @@ export default function (
     ? (loaderUtils.parseQuery(this.resourceQuery) as Partial<OPTIONS>)
     : undefined;
   const fullOptions = {
+    toFile: true,
     ...options,
     ...attemptToConvertValuesToNumbers(queryObject),
   };
@@ -38,18 +38,7 @@ export default function (
 
   processImage(content, fullOptions)
     .then((result) => {
-      const fileLoaderContext = {
-        ...this,
-        resourcePath: this.resourcePath,
-        query: fullOptions.fileLoaderOptions,
-      };
-
-      const fileLoaderResult = fileLoader.call(
-        fileLoaderContext,
-        result,
-        sourceMap
-      );
-      callback?.(null, fileLoaderResult);
+      callback?.(null, result);
     })
     .catch((e) => {
       throw e;

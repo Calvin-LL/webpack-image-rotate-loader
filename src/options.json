@@ -9,10 +9,6 @@
     "angle": {
       "description": "The angle to rotate the input image. Or `undefined` which will use the EXIF `Orientation` tag. Default to `undefined`",
       "type": "number"
-    },
-    "fileLoaderOptions": {
-      "type": "object",
-      "additionalProperties": true
     }
   }
 }

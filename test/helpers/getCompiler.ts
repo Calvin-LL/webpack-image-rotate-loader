@@ -27,13 +27,15 @@ export default (
           test: /\.(png|jpg|svg)/i,
           use: [
             {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+              },
+            },
+            {
               loader: path.resolve(__dirname, "..", "..", "dist", "cjs.js"),
               options: {
                 ...loaderOptions,
-                fileLoaderOptions: {
-                  name: "[name].[ext]",
-                  ...loaderOptions?.fileLoaderOptions,
-                },
               },
             },
           ],

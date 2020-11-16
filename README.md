@@ -36,6 +36,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|webp|tiff?)/i,
         use: [
+          "file-loader",
           {
             loader: "webpack-image-rotate-loader",
             options: {
@@ -65,11 +66,10 @@ import placeholderUrl from './some_pic.png?{"angle":90}';
 
 ## Options
 
-| Name                                          | Type             | Default     | Description                                                                                              |
-| --------------------------------------------- | ---------------- | ----------- | -------------------------------------------------------------------------------------------------------- |
-| **[`angle`](#width)**                         | `number`         | `undefined` | The angle to rotate the input image.                                                                     |
-| **[`background`](#background)**               | `string\|object` | `"#000000"` | The background color of the output image if the image is rotated by an angle other than multiples of 90. |
-| **[`fileLoaderOptions`](#fileloaderoptions)** | `object`         | `undefined` | Additional options for [file-loader](https://github.com/webpack-contrib/file-loader).                    |
+| Name                            | Type             | Default     | Description                                                                                              |
+| ------------------------------- | ---------------- | ----------- | -------------------------------------------------------------------------------------------------------- |
+| **[`angle`](#angle)**           | `number`         | `undefined` | The angle to rotate the input image.                                                                     |
+| **[`background`](#background)** | `string\|object` | `"#000000"` | The background color of the output image if the image is rotated by an angle other than multiples of 90. |
 
 ### `angle`
 
@@ -86,7 +86,3 @@ example: `"#7743CE"`, `"rgb(255, 255, 255)"`, `{r:0,g:0,b:0,alpha:1}`
 The background color of the output image if the image is rotated by an angle other than multiples of 90.
 
 This is passed as `background` in the [`options` of the parameters of sharp's `resize` function](https://sharp.pixelplumbing.com/api-operation#rotate)
-
-### `fileLoaderOptions`
-
-`fileLoaderOptions` is passed as the options object internally to [file-loader](https://github.com/webpack-contrib/file-loader) to save a file. Go to [file-loader](https://github.com/webpack-contrib/file-loader) to find the available options.
