@@ -24,6 +24,8 @@ yarn add webpack-image-rotate-loader --dev
 
 Note: if you only want to rotate some but not all images, check out [webpack-query-loader](https://github.com/CoolCyberBrain/webpack-query-loader) or use webpack's `resourceQuery`.
 
+This library supports JPEG, PNG, WebP, TIFF and RAW files.
+
 #### webpack.config.js
 
 ```javascript
