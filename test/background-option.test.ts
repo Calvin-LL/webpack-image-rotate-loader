@@ -11,23 +11,48 @@ expect.extend({ toMatchImageSnapshot });
 describe.each([4, 5] as const)('v%d "background" option', (webpackVersion) => {
   test("should work with red", async () => {
     const compiler = getCompiler(webpackVersion, {
-      width: 10,
-      height: 10,
-      fit: "contain",
+      angle: 40,
       background: "red",
-      fileLoaderOptions: {
-        name: "image.jpg",
-      },
     });
     const stats = await compile(webpackVersion, compiler);
 
     expect(
       await convertToPng(
-        readAsset("image.jpg", compiler, stats as webpack.Stats, true)
+        readAsset(
+          "Macaca_nigra_self-portrait_large.jpg",
+          compiler,
+          stats as webpack.Stats,
+          true
+        )
       )
     ).toMatchImageSnapshot({
       customDiffConfig: { threshold: 0 },
-      customSnapshotIdentifier: "10w-10h-80q-contain-red",
+      customSnapshotIdentifier: "40-deg-red-background",
+    });
+  });
+
+  test("should be overridden by query", async () => {
+    const compiler = getCompiler(
+      webpackVersion,
+      {
+        background: "red",
+      },
+      "json-query.js"
+    );
+    const stats = await compile(webpackVersion, compiler);
+
+    expect(
+      await convertToPng(
+        readAsset(
+          "Macaca_nigra_self-portrait_large.jpg",
+          compiler,
+          stats as webpack.Stats,
+          true
+        )
+      )
+    ).toMatchImageSnapshot({
+      customDiffConfig: { threshold: 0 },
+      customSnapshotIdentifier: "120-deg-blue-background",
     });
   });
 });

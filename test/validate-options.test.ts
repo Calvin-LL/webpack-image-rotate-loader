@@ -5,68 +5,13 @@ import getCompiler from "./helpers/getCompiler";
 
 describe.each([4, 5] as const)("v%d validate options", (webpackVersion) => {
   const tests = {
-    width: {
-      success: [10],
-      failure: [true, 0, 0.1],
-    },
-    height: {
-      success: [10],
-      failure: [true, 0, 0.1],
-    },
-    fit: {
-      success: ["cover", "contain", "fill", "inside", "outside"],
-      failure: [true, "0"],
-    },
-    position: {
-      success: [
-        "top",
-        "right top",
-        "right",
-        "right bottom",
-        "bottom",
-        "left bottom",
-        "left",
-        "left top",
-
-        "north",
-        "northeast",
-        "east",
-        "southeast",
-        "south",
-        "southwest",
-        "west",
-        "northwest",
-        "center",
-        "centre",
-
-        "entropy",
-        "attention",
-      ],
-      failure: [true, "0"],
-    },
     background: {
       success: ["#FFF", "rgb(2,4,99)", { r: 255, g: 255, b: 255 }],
       failure: [false, 9],
     },
-    scale: {
-      success: [0.1, 0.5, 1],
-      failure: [-1, 0],
-    },
-    format: {
-      success: ["jpeg", "png", "webp", "tiff"],
-      failure: [true],
-    },
-    quality: {
-      success: [10],
-      failure: [0],
-    },
-    scaleUp: {
-      success: [true, false],
-      failure: [0],
-    },
-    sharpOptions: {
-      success: [{ resize: { fastShrinkOnLoad: true } }],
-      failure: [0],
+    angle: {
+      success: [undefined, 90, -90, -190],
+      failure: [false, "false"],
     },
   };
 

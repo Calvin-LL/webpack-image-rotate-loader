@@ -17,7 +17,7 @@ export default (
     entry: path.resolve(fixturesDir, filename),
     output: {
       publicPath: "",
-      path: path.resolve(__dirname, "..", "/outputs"),
+      path: path.resolve(__dirname, "..", "outputs"),
       filename: "[name].bundle.js",
       chunkFilename: "[name].chunk.js",
     },
@@ -28,7 +28,13 @@ export default (
           use: [
             {
               loader: path.resolve(__dirname, "..", "..", "dist", "cjs.js"),
-              options: loaderOptions,
+              options: {
+                ...loaderOptions,
+                fileLoaderOptions: {
+                  name: "[name].[ext]",
+                  ...loaderOptions?.fileLoaderOptions,
+                },
+              },
             },
           ],
         },
