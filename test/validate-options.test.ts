@@ -24,7 +24,6 @@ describe.each([4, 5] as const)("v%d validate options", (webpackVersion) => {
       type === "success" ? "successfully validate" : "throw an error on"
     } the "${key}" option with ${JSON.stringify(value)} value`, async () => {
       const compiler = getCompiler(webpackVersion, {
-        width: 10,
         [key]: value,
       });
 
