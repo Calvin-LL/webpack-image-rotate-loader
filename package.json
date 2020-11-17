@@ -42,7 +42,7 @@
   "dependencies": {
     "loader-utils": "^2.0.0",
     "schema-utils": "^3.0.0",
-    "sharp": "^0.26.2"
+    "sharp": "^0.26.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
