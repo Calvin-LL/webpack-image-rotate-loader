@@ -1,9 +1,7 @@
-import fileLoader from "file-loader";
 import loaderUtils from "loader-utils";
 import { validate } from "schema-utils";
 import { Schema } from "schema-utils/declarations/validate";
 import sharp from "sharp";
-import { RawSourceMap } from "source-map";
 import { loader } from "webpack";
 
 import schema from "./options.json";
@@ -15,11 +13,7 @@ export interface OPTIONS {
 
 export const raw = true;
 
-export default function (
-  this: loader.LoaderContext,
-  content: ArrayBuffer,
-  sourceMap?: RawSourceMap
-) {
+export default function (this: loader.LoaderContext, content: ArrayBuffer) {
   const callback = this.async();
   const options = loaderUtils.getOptions(this) as Readonly<OPTIONS> | null;
   const queryObject = this.resourceQuery
