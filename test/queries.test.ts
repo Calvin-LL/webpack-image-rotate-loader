@@ -13,7 +13,8 @@ describe.each([4, 5] as const)("v%d queries", (webpackVersion) => {
     const compiler = getCompiler(
       webpackVersion,
       { angle: 90 },
-      "regular-query.js"
+      "index.js",
+      'require("./Macaca_nigra_self-portrait_large.jpg?angle=-190")'
     );
     const stats = await compile(webpackVersion, compiler);
 
@@ -36,7 +37,8 @@ describe.each([4, 5] as const)("v%d queries", (webpackVersion) => {
     const compiler = getCompiler(
       webpackVersion,
       { angle: 90 },
-      "json-query.js"
+      "index.js",
+      `require('./Macaca_nigra_self-portrait_large.jpg?{"angle": 120,"background": "blue"}')`
     );
     const stats = await compile(webpackVersion, compiler);
 

@@ -30,29 +30,4 @@ describe.each([4, 5] as const)('v%d "background" option', (webpackVersion) => {
       customSnapshotIdentifier: "40-deg-red-background",
     });
   });
-
-  test("should be overridden by query", async () => {
-    const compiler = getCompiler(
-      webpackVersion,
-      {
-        background: "red",
-      },
-      "json-query.js"
-    );
-    const stats = await compile(webpackVersion, compiler);
-
-    expect(
-      await convertToPng(
-        readAsset(
-          "Macaca_nigra_self-portrait_large.jpg",
-          compiler,
-          stats as webpack.Stats,
-          true
-        )
-      )
-    ).toMatchImageSnapshot({
-      customDiffConfig: { threshold: 0 },
-      customSnapshotIdentifier: "120-deg-blue-background",
-    });
-  });
 });

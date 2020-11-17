@@ -10,7 +10,7 @@ expect.extend({ toMatchImageSnapshot });
 
 describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
   test("should work with 132 deg", async () => {
-    const compiler = getCompiler(webpackVersion, { angle: 132 }, "simple.js");
+    const compiler = getCompiler(webpackVersion, { angle: 132 }, "index.js");
     const stats = await compile(webpackVersion, compiler);
 
     expect(
@@ -29,7 +29,7 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
   });
 
   test("should work with -132 deg", async () => {
-    const compiler = getCompiler(webpackVersion, { angle: -132 }, "simple.js");
+    const compiler = getCompiler(webpackVersion, { angle: -132 }, "index.js");
     const stats = await compile(webpackVersion, compiler);
 
     expect(
@@ -48,7 +48,12 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
   });
 
   test("should work with orientation: 6 = Rotate 90 CW", async () => {
-    const compiler = getCompiler(webpackVersion, {}, "simple-orientation-6.js");
+    const compiler = getCompiler(
+      webpackVersion,
+      {},
+      "index.js",
+      'require("./Macaca_nigra_self-portrait_large-orientation-6.jpg")'
+    );
     const stats = await compile(webpackVersion, compiler);
 
     expect(
@@ -67,7 +72,12 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
   });
 
   test("should work with orientation: 7 = Mirror horizontal and rotate 90 CW", async () => {
-    const compiler = getCompiler(webpackVersion, {}, "simple-orientation-7.js");
+    const compiler = getCompiler(
+      webpackVersion,
+      {},
+      "index.js",
+      'require("./Macaca_nigra_self-portrait_large-orientation-7.jpg")'
+    );
     const stats = await compile(webpackVersion, compiler);
 
     expect(
