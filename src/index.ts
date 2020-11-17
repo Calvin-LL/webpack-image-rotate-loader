@@ -20,7 +20,6 @@ export default function (this: loader.LoaderContext, content: ArrayBuffer) {
     ? (loaderUtils.parseQuery(this.resourceQuery) as Partial<OPTIONS>)
     : undefined;
   const fullOptions = {
-    toFile: true,
     ...options,
     ...attemptToConvertValuesToNumbers(queryObject),
   };
