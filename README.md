@@ -2,9 +2,9 @@
 
 [![npm](https://img.shields.io/npm/v/webpack-image-rotate-loader?style=flat)](https://www.npmjs.com/package/webpack-image-rotate-loader) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat)](https://opensource.org/licenses/MIT)
 
-This loader resize the given images to the desired size.
+This loader rotate images.
 
-Supports JPEG, PNG, WebP, and, TIFF images.
+Supports JPEG, PNG, WebP, TIFF and RAW images.
 
 ## Install
 
@@ -25,8 +25,6 @@ yarn add webpack-image-rotate-loader --dev
 This loader outputs a the raw rotated image file. `"file-loader"` or another loader capable of handling image files should be place before this loader (**before** since webpack loaders are run from the last one to the first).
 
 If you only want to rotate some but not all images, check out [webpack-query-loader](https://github.com/CoolCyberBrain/webpack-query-loader) or use webpack's `resourceQuery`.
-
-This library supports JPEG, PNG, WebP, TIFF and RAW files.
 
 #### webpack.config.js
 
