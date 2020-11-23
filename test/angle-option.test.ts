@@ -5,7 +5,7 @@ import WIRLWebpackTestCompiler from "./helpers/WIRLWebpackTestCompiler";
 expect.extend({ toMatchImageSnapshot });
 
 describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
-  test("should work with 132 deg", async () => {
+  it("should work with 132 deg", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({ loaderOptions: { angle: 132 } });
 
@@ -17,7 +17,7 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
     });
   });
 
-  test("should work with -132 deg", async () => {
+  it("should work with -132 deg", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({ loaderOptions: { angle: -132 } });
 
@@ -29,7 +29,7 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
     });
   });
 
-  test("should work with orientation: 6 = Rotate 90 CW", async () => {
+  it("should work with orientation: 6 = Rotate 90 CW", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
       fileContentOverride:
@@ -46,7 +46,7 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
     });
   });
 
-  test("should work with orientation: 7 = Mirror horizontal and rotate 90 CW", async () => {
+  it("should work with orientation: 7 = Mirror horizontal and rotate 90 CW", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
       fileContentOverride:

@@ -5,7 +5,7 @@ import WIRLWebpackTestCompiler from "./helpers/WIRLWebpackTestCompiler";
 expect.extend({ toMatchImageSnapshot });
 
 describe.each([4, 5] as const)("v%d queries", (webpackVersion) => {
-  test("should be overridden by query", async () => {
+  it("should be overridden by query", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
       loaderOptions: { angle: 90 },
@@ -21,7 +21,7 @@ describe.each([4, 5] as const)("v%d queries", (webpackVersion) => {
     });
   });
 
-  test("should be overridden by json query", async () => {
+  it("should be overridden by json query", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
       loaderOptions: { angle: 90 },
