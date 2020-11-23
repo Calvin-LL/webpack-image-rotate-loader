@@ -13,11 +13,7 @@ interface WIRLCompileOptions extends Omit<CompileOptions, "entryFilePath"> {
 
 export default class WIRLWebpackTestCompiler extends WebpackTestCompiler {
   compile(options: WIRLCompileOptions = {}): Promise<WebpackTestBundle> {
-    const {
-      loaderOptions = {},
-      entryFileName = "index.js",
-      fileContentOverride,
-    } = options;
+    const { loaderOptions = {}, entryFileName = "index.js" } = options;
     const fixturesDir = path.resolve(__dirname, "..", "fixtures");
 
     this.webpackConfig = {
@@ -43,8 +39,8 @@ export default class WIRLWebpackTestCompiler extends WebpackTestCompiler {
     };
 
     return super.compile({
+      ...options,
       entryFilePath: path.resolve(fixturesDir, entryFileName),
-      fileContentOverride,
     });
   }
 }

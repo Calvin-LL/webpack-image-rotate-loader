@@ -32,6 +32,7 @@ describe.each([4, 5] as const)("v%d validate options", (webpackVersion) => {
             loaderOptions: {
               [key]: value,
             },
+            throwOnError: false,
           })
         ).stats;
       } finally {

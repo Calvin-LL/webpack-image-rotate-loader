@@ -32,7 +32,7 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
   test("should work with orientation: 6 = Rotate 90 CW", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
-      fileContent:
+      fileContentOverride:
         'require("./Macaca_nigra_self-portrait_large-orientation-6.jpg")',
     });
 
@@ -49,7 +49,7 @@ describe.each([4, 5] as const)('v%d "angle" option', (webpackVersion) => {
   test("should work with orientation: 7 = Mirror horizontal and rotate 90 CW", async () => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
-      fileContent:
+      fileContentOverride:
         'require("./Macaca_nigra_self-portrait_large-orientation-7.jpg")',
     });
 

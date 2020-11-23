@@ -9,7 +9,7 @@ describe.each([4, 5] as const)("v%d queries", (webpackVersion) => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
       loaderOptions: { angle: 90 },
-      fileContent:
+      fileContentOverride:
         'require("./Macaca_nigra_self-portrait_large.jpg?angle=-190")',
     });
 
@@ -25,7 +25,7 @@ describe.each([4, 5] as const)("v%d queries", (webpackVersion) => {
     const compiler = new WIRLWebpackTestCompiler({ webpackVersion });
     const bundle = await compiler.compile({
       loaderOptions: { angle: 90 },
-      fileContent: `require('./Macaca_nigra_self-portrait_large.jpg?{"angle": 120,"background": "blue"}')`,
+      fileContentOverride: `require('./Macaca_nigra_self-portrait_large.jpg?{"angle": 120,"background": "blue"}')`,
     });
 
     expect(
