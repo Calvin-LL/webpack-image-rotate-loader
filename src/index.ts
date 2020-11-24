@@ -7,7 +7,7 @@ import { loader } from "webpack";
 import schema from "./options.json";
 
 export interface OPTIONS {
-  background?: string | any;
+  background?: string | Record<string, unknown>;
   angle?: number;
 }
 
@@ -53,7 +53,9 @@ async function processImage(
   return await sharpImage.toBuffer();
 }
 
-function attemptToConvertValuesToNumbers(object: any | undefined): any {
+function attemptToConvertValuesToNumbers(
+  object: any | undefined
+): Record<string, unknown> {
   const result = { ...object };
 
   Object.keys(result).forEach((key) => {
