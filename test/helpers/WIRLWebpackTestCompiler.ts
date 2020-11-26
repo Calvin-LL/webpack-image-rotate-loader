@@ -30,7 +30,13 @@ export default class WIRLWebpackTestCompiler extends WebpackTestCompiler {
               },
             },
             {
-              loader: path.resolve(__dirname, "..", "..", "dist", "cjs.js"),
+              loader: path.resolve(
+                __dirname,
+                "..",
+                "..",
+                "test-dist",
+                "cjs.js"
+              ),
               options: loaderOptions,
             },
           ],
