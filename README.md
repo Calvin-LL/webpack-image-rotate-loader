@@ -6,6 +6,14 @@ This loader rotate images.
 
 Supports JPEG, PNG, WebP, TIFF and RAW images.
 
+## Examples
+
+[React](https://github.com/Calvin-LL/webpack-image-placeholder-loader/tree/master/examples/react)
+
+[React (with resourceQuery)](https://github.com/Calvin-LL/webpack-image-placeholder-loader/tree/master/examples/react-complex)
+
+[Vue](https://github.com/Calvin-LL/webpack-image-placeholder-loader/tree/master/examples/vue)
+
 ## Install
 
 Install with npm:
@@ -87,6 +95,20 @@ or
 
 ```javascript
 import placeholderUrl from './some_pic.png?{"angle":90}';
+```
+
+### Other usage
+
+With default options:
+
+```javascript
+import placeholderUrl from "!!webpack-image-rotate-loader!./some_pic.png";
+```
+
+With specified options:
+
+```javascript
+import placeholderUrl from "!!webpack-image-rotate-loader!./some_pic.png?angle=180";
 ```
 
 ## Options
