@@ -32,6 +32,7 @@ module.exports = {
       },
       /*
       {
+        // if you only want to rotate some but not all images
         test: /\.(png|jpe?g|webp|tiff?)$/i,
         oneOf: [
           {
