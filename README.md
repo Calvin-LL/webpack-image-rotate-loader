@@ -10,8 +10,6 @@ Supports JPEG, PNG, WebP, TIFF and RAW images.
 
 [React](https://github.com/Calvin-LL/webpack-image-rotate-loader/tree/master/examples/react)
 
-[React (with resourceQuery)](https://github.com/Calvin-LL/webpack-image-rotate-loader/tree/master/examples/react-complex)
-
 [Vue](https://github.com/Calvin-LL/webpack-image-rotate-loader/tree/master/examples/vue)
 
 ## Install
@@ -19,20 +17,20 @@ Supports JPEG, PNG, WebP, TIFF and RAW images.
 Install with npm:
 
 ```bash
-npm install webpack-image-rotate-loader --save-dev
+npm install --save-dev webpack-image-rotate-loader
 ```
 
 Install with yarn:
 
 ```bash
-yarn add webpack-image-rotate-loader --dev
+yarn add --dev webpack-image-rotate-loader
 ```
 
 ## Usage
 
 This loader outputs a raw rotated image file. `"file-loader"` or another loader capable of handling image files should be place before this loader (_before_ since webpack loaders are run from the last one to the first).
 
-If you only want to rotate some but not all images, check out [webpack-query-loader](https://github.com/Calvin-LL/webpack-query-loader) or use webpack's `resourceQuery`.
+If you only want to rotate some but not all images use webpack's `oneOf` (like in the [examples](#examples)).
 
 #### webpack.config.js
 

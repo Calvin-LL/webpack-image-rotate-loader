@@ -30,6 +30,30 @@ module.exports = {
           },
         ],
       },
+      /*
+      {
+        test: /\.(png|jpe?g|webp|tiff?)$/i,
+        oneOf: [
+          {
+            // if the import url looks like "some.png?rotate..."
+            resourceQuery: /rotate/,
+            use: [
+              "file-loader",
+              {
+                loader: "webpack-image-rotate-loader",
+                options: {
+                  angle: 90,
+                },
+              },
+            ],
+          },
+          {
+            // if no previous resourceQuery match
+            use: "file-loader",
+          },
+        ],
+      },
+      */
     ],
   },
   plugins: [
