@@ -8,9 +8,9 @@ Supports JPEG, PNG, WebP, TIFF and RAW images.
 
 ## Examples
 
-[React](https://github.com/Calvin-LL/webpack-image-rotate-loader/tree/master/examples/react)
+[React](https://github.com/Calvin-LL/webpack-image-rotate-loader/tree/main/examples/react)
 
-[Vue](https://github.com/Calvin-LL/webpack-image-rotate-loader/tree/master/examples/vue)
+[Vue](https://github.com/Calvin-LL/webpack-image-rotate-loader/tree/main/examples/vue)
 
 ## Install
 
