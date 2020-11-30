@@ -1,6 +1,6 @@
 {
   "name": "webpack-image-rotate-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Webpack loader to rotate imported images",
   "keywords": [
     "webpack",
