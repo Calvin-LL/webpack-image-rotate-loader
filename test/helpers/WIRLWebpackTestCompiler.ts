@@ -4,9 +4,9 @@ import {
   WebpackTestBundle,
   WebpackTestCompiler,
 } from "@calvin-l/webpack-loader-test-util";
-import { CompileOptions } from "@calvin-l/webpack-loader-test-util/dist/WebpackTestCompiler";
 
-interface WIRLCompileOptions extends Omit<CompileOptions, "entryFilePath"> {
+interface WIRLCompileOptions
+  extends Omit<WebpackTestCompiler.CompileOptions, "entryFilePath"> {
   entryFileName?: string;
   loaderOptions?: any;
 }
